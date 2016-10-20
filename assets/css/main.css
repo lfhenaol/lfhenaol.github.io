@@ -1,6 +1,9 @@
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-
+@font-face {
+    font-family: bear;
+    src: url(../../fonts/bear.ttf);
+}
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
@@ -1585,6 +1588,8 @@
         color: #e6ad59;
         line-height: 1.5em;
         text-shadow: #000000 2px 3px 3px;
+        font-family: bear;
+        text-transform: lowercase;
 	}
 
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -1597,7 +1602,7 @@
 		}
 
 	h2 {
-		font-size: 2em;
+        font-size: 4em !important;
 		letter-spacing: -1px;
 	}
 
@@ -1610,7 +1615,7 @@
 			}
 
 	h3 {
-		font-size: 1.5em;
+		font-size: 3.4rem !important;
 	}
 
 	header {
