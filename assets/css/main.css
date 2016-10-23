@@ -2629,6 +2629,7 @@ p {
 
 .title-col-table {
     font-weight: bold;
+    border-radius: 0px;
 }
 
 .no-radius {
@@ -2818,3 +2819,14 @@ p {
   }
 }
 
+h4 {
+        font-size: 2.8rem !important;
+}
+
+.slider .indicators .indicator-item{
+        background-color: #ffffff !important;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #4CAF50 !important;
+}
