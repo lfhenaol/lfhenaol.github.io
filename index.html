@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html ng-app="ludificar">
+<html ng-app="ludificar" ng-controller="LudificarCtrl as ludif">
 	<head>
 		<title>Ludificar S.A.S</title>
 		<meta charset="utf-8" />
@@ -23,8 +23,9 @@
     </head>
 	<body>
 
+    <div >
 		<!-- Header -->
-			<div id="header" ng-controller="LudificarCtrl as ludif">
+        <div id="header" >
 
 				<div class="top">
 
@@ -78,6 +79,10 @@
 
 			</div>
 
+        <div ng-if="!ludif.fn.mostrarBorde()">
+            <div class="borde-superior"></div>
+        </div>
+    </div>
 		<!-- Main -->
 			<div id="main">
 
@@ -86,7 +91,7 @@
 
                 <!-- Intro -->
                 <script type="text/ng-template" id="intro.html">
-					<section id="top" class="one dark cover z-depth-3">
+					<div id="top" class="one dark cover z-depth-3">
 						<div class="container">
 
 							<header>
@@ -97,17 +102,18 @@
 							</footer>
 
 						</div>
-					</section>
+					</div>
                 </script>
 
                 <!-- Objetivos -->
                 <script type="text/ng-template" id="objetivos.html">
                 <section id="objetivos" class="two">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Objetivos</h2>
+                            </header>
+
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								    <h2>Objetivos</h2>
-							     </header>
 								<article class="col s12 m12 l12">
                                 <h3>Objetivo general</h3>
                                     <p class="flow-text">Generar espacios de lúdica y recreación individuales y grupales para la población en proceso de reinserción en la etapa el posconflicto, dentro de una zona veredal transitoria de normalización (ZVTN) ubicada en el municipio de Dabebia Antioquia.</p>
@@ -134,10 +140,10 @@
                 <script type="text/ng-template" id="justificacion.html">
                 <section id="justificacion" class="two ">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Justificación</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Justificación</h2>
-							     </header>
 								<article class="col s12 m12 l12">
                                     <p class="flow-text">El limitado acceso a la recreación y el esparcimiento incumple un derecho humano básico, contemplado en la Declaración Universal de los Derechos Humanos, el cual se evidencia significativamente en poblaciones en proceso de reinserción, por lo que se hace necesario crear herramientas para canalizar positivamente las emociones y exponer gradualmente a esta población a las dinámicas básicas de cualquier sociedad civil [1,2].</p>
                                 </article>
@@ -222,7 +228,10 @@
 
                 <!-- Estudio Legal -->
                 <script type="text/ng-template" id="estudio_legal.html">
-                <section id="estudio_legal" class="two">
+                <section id="estudio_legal">
+                    <div class="row">
+
+                    </div>
 						<div class="container">
 
 							<header>
@@ -230,10 +239,19 @@
 							</header>
 
 							<div class="row">
+                                <div class="col hide-on-small-only m3 l2 table-of-contents">
+                                    <ul class="section">
+                                        <li><a ui-sref="legal({'#':'estudio_legal'})" ng-click="ludif.fn.activeSubMenu('est_legal')" ng-class="ludif.sub.est_legal" >Estudio legal</a></li>
+                                        <li><a ui-sref="legal({'#':'legislacion'})" ng-click="ludif.fn.activeSubMenu('legislacion')" ng-class="ludif.sub.legislacion">Legislación comercial</a></li>
+                                        <li><a ui-sref="legal({'#':'responsabilidad'})" ng-click="ludif.fn.activeSubMenu('responsabilidad')" ng-class="ludif.sub.responsabilidad">Responsabilidad tributaria</a></li>
+                                        <li><a ui-sref="legal({'#':'ley'})" ng-click="ludif.fn.activeSubMenu('ley')" ng-class="ludif.sub.ley">Ley 1225 de 2008</a></li>
+                                        <li><a ui-sref="legal({'#':'referencias'})" ng-click="ludif.fn.activeSubMenu('referencias')" ng-class="ludif.sub.referencias">Referencias</a></li>
+                                    </ul>
+                                </div>
 								<article class="col s12 m12 l12 flow-text">
                                     <p>Toda organización con alguna actividad comercial, están regidas por normativas que implican ciertas obligaciones y requisitos legales para que esta pueda ser conformada y realice su actividad.</p>
 
-                                    <h4>LEGISLACIÓN COMERCIAL, LEY 1258 DE 2008 [1]</h4>
+                                    <h4 id="legislacion">LEGISLACIÓN COMERCIAL, LEY 1258 DE 2008 [1]</h4>
                             
                             
                                     <p style="margin-bottom:-1rem">Por medio de la cual se crea la sociedad por acciones simplificada. S.A.S
@@ -253,7 +271,7 @@
                                     <p class="interlineado">
                                     ARTÍCULO 3. NATURALEZA. La sociedad por acciones simplificada es una sociedad de capitales cuya naturaleza será siempre comercial, independientemente de las actividades previstas en su objeto social. Para efectos tributarios, la sociedad por acciones simplificada se regirá por las reglas aplicables a las sociedades anónimas.
                                     </p>
-                                    <h4>RESPONSABILIDAD TRIBUTARIA [2,3]</h4>
+                                    <h4 id="responsabilidad">RESPONSABILIDAD TRIBUTARIA [2,3]</h4>
                                     <p class="interlineado">
                                     Al igual que las demás formas societarias, la SAS debe cumplir con las obligaciones tributarias impuestas por la ley. Su proceso contributivo se fundamenta en el artículo 95 numeral 9º de la Constitución Política de Colombia, según el cual todos los ciudadanos tienen el deber de “contribuir al financiamiento de los gastos e inversiones del Estado dentro de conceptos de justicia y equidad”. Los impuestos nacionales que generan obligaciones especiales de procedimiento para el pago y el control de los mismos son: el Impuesto de Renta y Complementarios (Ganancias Ocasionales), el Impuesto al Valor Agregado (IVA), el Impuesto de Timbre, Impuesto a los Gravámenes Financieros, y el Impuesto al Patrimonio y el recaudo anticipado denominado “Retención en la Fuente”.
                                     </p>
@@ -292,7 +310,7 @@
                                     <p class="interlineado">
                                     La sociedad por acciones simplificada sólo está obligada a tener revisor fiscal cuando supere los montos de activos o ingresos consagrados en el parágrafo 2º del artículo 13 de la Ley 43 de 1990, cuando sus activos brutos al 31 de diciembre del año inmediatamente anterior sean o excedan el equivalente de cinco mil salarios mínimos y/o cuyos ingresos brutos durante el año inmediatamente anterior sean o excedan al equivalente a tres mil salarios mínimos [4]. 
                                     </p>
-                                    <h4>LEY 1225 DE 2008 [5]
+                                    <h4 id="ley" class="scrollspy">LEY 1225 DE 2008 [5]
 </h4>
                                     <p class="interlineado">
                                         Por la cual se regulan el funcionamiento y operación de los parques de diversiones, atracciones o dispositivos de entretenimiento, atracciones mecánicas y ciudades de hierro, parques acuáticos, temáticos, ecológicos, centros interactivos, zoológicos y acuarios en todo el territorio nacional y se dictan otras disposiciones.
@@ -308,7 +326,7 @@
                             <div class="row">
 								<article class="col s12 m12 l12">
 
-								<h3>Referencias</h3>
+								<h3 id="referencias">Referencias</h3>
                                     <p class="flow-text" style="text-align:justify;">[1] 	Ley 1258 de diciembre 5 de 2008, Constitución Política de Colombia. <br/>[2] Estatuto Tributario vigente de Colombia, Leyes, Decretos.<br/>[3] Código de Comercio,2009. Bogotá: Editorial Legis S.A.<br/>[4] Ley 43 de 1990, Constitución Política de Colombia.<br/>[5] Ley 1225 de julio 16 de 2008, Constitución Política de Colombia.</p>
                                 </article>
 							</div>
@@ -321,10 +339,10 @@
                 <script type="text/ng-template" id="estudio_ambiental.html">
                 <section id="estudio_ambiental" class="two">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Estudio ambiental</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Estudio ambiental</h2>
-							</header>
 								<article class="col s12 m12 l12 flow-text">
 <table class="bordered striped z-depth-1" style="background-color: #ffffff;font-size: initial;">
   <thead>
@@ -387,10 +405,10 @@
                 <script type="text/ng-template" id="estudio_organizacional.html">
                 <section id="estudio_organizacional" class="two">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Estudio organizacional</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Estudio organizacional</h2>
-							</header>
 								<article class="col s12 m12 l12 flow-text">
                                     <img src="images/organigrama.svg" style="width:70%"/>
    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size: large;">
@@ -482,11 +500,19 @@
                 <script type="text/ng-template" id="estudio_entorno.html">
                 <section id="estudio_entorno" class="two">
 						<div class="container">
-
+                            <header class="col s12 m12 l12">
+                                <h2>Estudio de entorno</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Estudio de entorno</h2>
-							</header>
+                                <div class="col hide-on-small-only m3 l2 table-of-contents">
+                                    <ul class="section">
+                                        <li><a ui-sref="entorno({'#':'estudio_entorno'})" ng-click="ludif.fn.activeSubMenu('est_entorno')" ng-class="ludif.sub.est_entorno" >Estudio de entorno</a></li>
+                                        <li><a ui-sref="entorno({'#':'aspecto_sp'})" ng-click="ludif.fn.activeSubMenu('sp')" ng-class="ludif.sub.sp">Aspecto socio - político</a></li>
+                                        <li><a ui-sref="entorno({'#':'legal'})" ng-click="ludif.fn.activeSubMenu('legal')" ng-class="ludif.sub.legal">Aspecto legal</a></li>
+                                        <li><a ui-sref="entorno({'#':'economico'})" ng-click="ludif.fn.activeSubMenu('economico')" ng-class="ludif.sub.economico">Aspecto económico</a></li>
+                                        <li><a ui-sref="entorno({'#':'referencias'})" ng-click="ludif.fn.activeSubMenu('referencias')" ng-class="ludif.sub.referencias">Referencias</a></li>
+                                    </ul>
+                                </div>
 								<article class="col s12 m12 l12 flow-text">
                                     <h3>Aspecto regional-geográfico</h3>
                                     <p>El municipio de Dabeiba está ubicado en la región occidental del departamento de Antioquia, limitando con los municipios de Murindó, Frontino, Uramita, Pequé, Ituango, Mutatá  y el departamento del Chocó, aproximadamente a 7°N de latitud y 76°O de longitud [1]. En la figura 1, obtenida a partir de la original encontrada en [2], se resalta la ubicación del municipio dentro del departamento de Antioquia y a su vez la del departamento dentro del país.</p>
@@ -495,15 +521,15 @@
                                     <p class="interlineado">El municipio se compone de 100 veredas que totalizan un área de 1883Km2 [3]; el territorio del municipio se encuentra en el pie de monte del extremo norte de la cordillera occidental, a una media de 500 m.s.n.m.m, en donde la orografía se ve ya suavizada por su proximidad al mar [1].</p>
                                     <p class="interlineado">El municipio hace parte de la cuenca del río Magdalena, en una zona con clasificación climática de muy húmeda, en la que no hay marcadas variaciones estacionales en los niveles de precipitación.</p>
                                     <p class="interlineado">La precipitación anual está en el rango 3000mm-5000mm y la temperatura oscila entre los 18 y los 28°C  [1,4].</p>
-                                    <h3>Aspecto socio - político</h3>
+                                    <h3 id="aspecto_sp">Aspecto socio - político</h3>
                                     <p class="interlineado">Actualmente cuenta con 23. 378 habitantes [4], de los cuales el 86,2% corresponde a mestizos y blancos, el 13,2% a indígenas, principalmente de la etnia Emberá y el 0,6% a afrocolombianos [1,5].</p>
                                     <p class="interlineado">Según la referencia [5], el 95,3% de los hogares habitan casas tradicionales, el 3,4% lo hace en apartamentos y el 1,3% en cuartos alquilados. El 65,9% de los hogares cuenta con el servicio de energía eléctrica, el 47,1% con servicio de alcantarillado, el 56,8% con el de acueducto y el 19,2% con el de teléfono. Los hogares tienen una media de 4 personas. La distribución por géneros de la población es de 50/50. La tasa de alfabetización alcanza el 65,7%, siendo esta condición más frecuente en la cabecera municipal. El nivel educativo más frecuente es el de básica primaria, con un 43,5% de la población, seguido del correspondiente a la básica secundaria, con 16,1%.</p>
                                     <p>El casco urbano está atravesado por la carretera Medellín-Turbo.  La malla vial del casco urbano está compuesta por vías secundarias y aquella que conecta al casco con las veredas hace parte del sistema terciario.</p>
-                                    <h3>Aspecto legal</h3>
+                                    <h3 id="legal">Aspecto legal</h3>
                                     <p class="interlineado">El principal ente de gobierno del municipio es la Alcaldía de Dabeiba, a cargo en el periodo 2016-2019 de Antonio José Lara Varelas. El municipio está bajo la jurisdicción de la Cuarta Brigada del Ejército Nacional, que atiende al departamento de Antioquia y parte del de Chocó [6]. La administración policial compete a la región de policía N°6, correspondiente a la zona noroccidental del país: departamentos de Antioquia, Chocó y Córdoba [7].</p>
                                     <p class="interlineado">La actividad deportiva y recreativa del municipio es atendida por la seccional municipal de Dabeiba de Indeportes Antioquia [8].</p>
                                     <p>Los servicios de salud están a cargo de la E.S.E. Hospital Nuestra Señora del Perpetuo Socorro [8].</p>
-                                    <h3>Aspecto económico</h3>
+                                    <h3 id="economico">Aspecto económico</h3>
                                     <p class="interlineado">De la referencia [5] se extrae que el 8,3% de los establecimientos en el municipio están dedicados a actividades industriales, el 59,6% a actividades de tipo comercial y el 31,5% a actividades relacionadas con la prestación de servicios. Por otro lado, el 90,3% de las viviendas rurales ocupadas presenta algún tipo de actividad agropecuaria; de esta fracción el 52,5% corresponde a actividades agrícolas, el 97,2% a actividades pecuarias y el 1,3% a piscícolas, siendo claro que hay viviendas en que se desarrollan simultáneamente varias actividades.</p>
                                     <p class="interlineado">La actividad agrícola se centra en el cultivo del fríjol, el maíz, la caña de azúcar, el café, tomate, cacao y maracuyá.</p>
                                     <p>La economía tiene también trazas de explotación forestal y minera, además de una componente ganadera.</p>
@@ -512,7 +538,7 @@
                             <div class="row">
 								<article class="col s12 m12 l12">
 
-								<h3>Referencias</h3>
+								<h3 id="referencias">Referencias</h3>
                                     <p style="text-align:justify;" class="flow-text">[1] B. Rengifo, "Geografía," en Colombia a su Alcance, 1ra ed., vol. Único, Editorial Planeta, 1990, pp. 24–134.<br/>
 [2] [1]"Dabeiba," in Wikipedia, Wikimedia Foundation, 2005. [Online]. Available: https://es.wikipedia.org/wiki/Dabeiba#/media/File:Colombia_-_Antioquia_-_Dabeiba.svg. Visitado: Sep. 12, 2016.<br/>
 [3] "OCCIDENTE - Página Jimdo de crnantioquia,". [Online]. Available: http://crnantioquia.jimdo.com/antioquia/occidente/. Visitado: Sep. 12, 2016.  archivo ´dabeibaIMPR.jpg’.<br/>
@@ -533,16 +559,30 @@
                 <script type="text/ng-template" id="estudio_tecnico.html">
                 <section id="estudio_tecnico" class="two">
 						<div class="container">
-
+                            <header class="col s12 m12 l12">
+                                <h2>Estudio técnico</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Estudio técnico</h2>
-							     </header>
+                                <div class="col hide-on-small-only m3 l2 table-of-contents">
+                                    <ul class="section">
+                                        <li><a ui-sref="tecnico({'#':'estudio_tecnico'})" ng-click="ludif.fn.activeSubMenu('est_tecnico')" ng-class="ludif.sub.est_tecnico" >Estudio técnico</a></li>
+                                        <li><a ui-sref="tecnico({'#':'macrolocalizacion'})" ng-click="ludif.fn.activeSubMenu('macro')" ng-class="ludif.sub.macro">Macrolocalización</a></li>
+                                        <li><a ui-sref="tecnico({'#':'alternativas_macro'})" ng-click="ludif.fn.activeSubMenu('altMacro')" ng-class="ludif.sub.altMacro">Alternativas de macrolocalización</a></li>
+                                        <li><a ui-sref="tecnico({'#':'microlocalizacion'})" ng-click="ludif.fn.activeSubMenu('micro')" ng-class="ludif.sub.micro">Microlocalización</a></li>
+                                        <li><a ui-sref="tecnico({'#':'alternativas_micro'})" ng-click="ludif.fn.activeSubMenu('altMicro')" ng-class="ludif.sub.altMicro">Alternativas de microlocalización</a></li>
+                                        <li><a ui-sref="tecnico({'#':'ing_proyecto'})" ng-click="ludif.fn.activeSubMenu('ingProyecto')" ng-class="ludif.sub.ingProyecto">Ingeniería del proyecto</a></li>
+                                        <li><a ui-sref="tecnico({'#':'tamanio_proyecto'})" ng-click="ludif.fn.activeSubMenu('tamanio')" ng-class="ludif.sub.tamanio">Tamaño del proyecto</a></li>
+                                        <li><a ui-sref="tecnico({'#':'materia_prima'})" ng-click="ludif.fn.activeSubMenu('materia')" ng-class="ludif.sub.materia">Materias primas e insumos</a></li>
+                                        <li><a ui-sref="tecnico({'#':'equipos'})" ng-click="ludif.fn.activeSubMenu('equipos')" ng-class="ludif.sub.equipos">Equipos y maquinaria</a></li>
+                                        <li><a ui-sref="tecnico({'#':'programacion_actividades'})" ng-click="ludif.fn.activeSubMenu('programacion')" ng-class="ludif.sub.programacion">Programación de actividades</a></li>
+                                        <li><a ui-sref="tecnico({'#':'referencias'})" ng-click="ludif.fn.activeSubMenu('referencias')" ng-class="ludif.sub.referencias">Referencias</a></li>
+                                    </ul>
+                                </div>
 								<article class="col s12 m12 l12 flow-text">
                                     <h3>Decisiones de localización</h3>
                                     <h4>¿Qué van a localizar?</h4>
                                     <p>Se desea localizar el área en la cual se ofrecerán los servicios de recreación y lúdica, identificando el lugar donde se desarrollarán y funcionarán estas actividades.</p>
-                                    <h4>Macrolocalización</h4>
+                                    <h4 id="macrolocalizacion">Macrolocalización</h4>
                                     <p class="interlineado">Se desea localizar el área o zona geográfica de mayor conveniencia para prestar el servicio dentro de la cual se va a establecer una zona veredal transitoria de negociación (ZVTN). Se seleccionará entre los siguientes municipios antioqueños: Remedios, Ituango, Dabeiba y Vigía del Fuerte [1]. Para la selección del lugar estratégico de la macrolocalización se tendrán en cuenta los siguientes criterios [2]:</p>
                                     <ul>
                                         <li class="justify"><i class="material-icons" style="vertical-align:sub;">send</i><span> Costo del transporte, facilitar el transporte de personal y suministros implica un costo de este en cuanto a tarifas, combustible y tiempo. Este criterio debido a su importancia, tiene un peso del 50%.
@@ -621,12 +661,12 @@
 </table>
                                     <span style="font-size:large"><span style="font-weight:bold">Tabla 1.</span> Análisis de alternativas de macrolocalización.  Fuente: elaboración propia basado en [3].</span>
                                     <br/><br/>
-                                    <h4>Análisis de las alternativas de macrolocalización </h4>
+                                    <h4 id="alternativas_macro">Análisis de las alternativas de macrolocalización </h4>
                                     <p class="interlineado">Remedios, las vías de acceso al municipio no se encuentran pavimentadas y en tiempo de invierno dificulta aún más las condiciones de acceso, no cuenta con servicios públicos básicos, como lo es el agua potable y el clima es cálido [4].</p>
                                     <p class="interlineado">Dabeiba, el municipio no cuenta con vías para la comercialización de productos pues hay muy pocas vías de acceso a zonas rurales, cuenta con precarios servicios públicos básicos y el clima es templado [5, 6].</p>
                                     <p class="interlineado">Ituango, el municipio cuenta con vías de acceso pero no en las mejores condiciones, La zona urbana del municipio cuenta con cobertura total del acueducto, alcantarillado y energía eléctrica, pero solo posee un 80% en telefonía y carece de gas domiciliario, las zonas rurales en cambio cuentan muy pocos servicios básicos. El clima del municipio es templado [7].</p>
                                     <p>A partir del método cualitativo por puntos basado en [3], se determina que la mejor alternativa para la macrolocalización es el municipio de Dabeiba, por su mayor acceso a los servicios públicos básicos respecto a las otras alternativas y su clima.</p>
-                                    <h4>Microlocalización</h4>
+                                    <h4 id="microlocalizacion">Microlocalización</h4>
                                     <p class="interlineado">Se localizará una zona veredal transitoria de normalización para realizar actividades de recreación y lúdica con la población dentro de esta zona. Se seleccionará entre las siguientes veredas dentro del municipio de Dabeiba, seleccionado en la macrolocalización: Llanogrande Chimiadó, Llanogrande Urama y Llanogrande Camparrusia [8]. Para el lugar estratégico de la microlocalización se tendrán en cuenta los siguientes criterios:</p>
                                     <ul>
                                         <li class="justify"><i class="material-icons" style="vertical-align:sub;">send</i><span> Accesibilidad terrestre, el acceso por vía terrestre debe ser accesible de forma que pueda llegar en un medio de transporte a la vereda. El peso del criterio es del 60%.
@@ -704,18 +744,18 @@
 </table>
                                     <span style="font-size:large"><span style="font-weight:bold">Tabla 2. </span>Análisis de alternativas de microlocalización.  Fuente: Elaboración propia basado en [3].</span>
                                     <br/><br/>
-                                    <h4>Análisis de las alternativas de microlocalización</h4>
+                                    <h4 id="alternativas_micro">Análisis de las alternativas de microlocalización</h4>
                                     <p class="interlineado">Tanto en Llanogrande Chimiadó, Urama como Camparrusia, las vías de acceso a las veredas no se encuentran pavimentadas y en tiempo de invierno dificulta aún más las condiciones de acceso, no cuenta con servicios públicos básicos, como lo es el agua potable y electricidad; las veredas no cuentan con estaciones de policía y la educación que se recibe en estas no alcanza el nivel máximo [8].</p>
                                     <p>A partir del método cualitativo por puntos basado en [3], se determina que la mejor alternativa para la microlocalización es la vereda Llanogrande Urama, por su mayor posibilidad de acceso por vía terrestre.</p>
-                                    <h4>Ingeniería del proyecto</h4>
+                                    <h4 id="ing_proyecto">Ingeniería del proyecto</h4>
                                     <h4>Descripción técnica del producto o servicio</h4>
                                     <p>El proyecto pretende ofrecer un servicio de recreación y lúdica orientado a la población dentro de una ZVTN, para la creación de nuevas experiencias que permitan mitigar el impacto humanitario entre el conflicto y su finalización [9]. Dentro del servicio de recreación se llevarán a cabo actividades deportivas individuales y grupales, además de promover actividades culturales, mediante la danza, la lectura y la cinematografía; el servicio de lúdica, se fomentará en el desarrollo de nuevos hábitos de aprovechamiento y utilización del tiempo, además de introducir a la población residente dentro la ZVTN a la utilización de herramientas informáticas básicas, mediante software interactivo. Tanto el servicio de recreación como el de lúdica, serán entregados por instructores calificados en deportes, danza, lectura, cinematografía e informática.</p>
-                                    <h4>Tamaño del proyecto</h4>
+                                    <h4 id="tamanio_proyecto">Tamaño del proyecto</h4>
                                     <p>La cantidad de personas dentro de la ZVTN que demandarán el servicio es desconocido actualmente, pues se sabe que de 7200 es el total de insurgentes que se acogerán al proceso de paz, esta población se distribuirá en 23 zonas veredales, lo cual hace que la población en una zona veredal, varíe dependiendo del área que ocupará la ZVTN. Además, estas zonas podrán ser ampliadas o reducidas por mutuo acuerdo entre los integrantes de las Farc y el gobierno nacional de Colombia [10]. Se tiene entonces que la cantidad de demanda potencial es actualmente desconocida y por lo tanto no es posible utilizar la metodología de indicadores para determinar el tamaño del proyecto.</p>
-                                        <h4>Materias primas e insumos</h4>
+                                        <h4 id="materia_prima">Materias primas e insumos</h4>
                                     <p class="interlineado">Para la realización de actividades recreativas y lúdicas, se requiere contar con materias primas tales como: balones de fútbol, baloncesto, voleibol, mesas de ping pong con pelotas y raquetas, tableros de ajedrez, damas y juegos didácticos.</p>
                                     <p>Como insumos generales se tienen todos los elementos de desarrollo de software y diseño gráfico e interactivo los cuales están incluidos en un computador con los programas necesarios para programar y diseñar el software para el aprendizaje de informática básica. </p>
-                                    <h4>Equipos y maquinaria</h4>
+                                    <h4 id="equipos">Equipos y maquinaria</h4>
 <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
@@ -769,7 +809,7 @@
   </tbody>
 </table>
                                     <span style="font-size:large"><span style="font-weight:bold">Tabla 3. </span>Equipos y maquinaria. Fuente: elaboración propia.</span>
-                                    <h3>Programación de actividades</h3>
+                                    <h3 id="programacion_actividades">Programación de actividades</h3>
                                     <p class="interlineado">LUDIFICAR S.A.S  divide sus actividades en tres grupos principales: DEPORTIVAS, LÚDICAS Y CULTURALES. A continuación se presenta la descripción y programa de cada uno de ellos. </p>
 <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
@@ -1749,7 +1789,7 @@
                             <div class="row">
 								<article class="col s12 m12 l12">
 
-								<h3>Referencias</h3>
+								<h3 id="referencias">Referencias</h3>
                                     <p style="text-align:justify;" class="flow-text">
                                         
                                         [1] Semana, «Estos son los municipios donde estarán ubicadas las FARC,» 24 Junio 2016. [En línea]. Available: http://www.semana.com/nacion/articulo/proceso-de-paz-ubicacion-de-las-zonas-veredales-de-las-farc/479052. [Último acceso: 14 Septiembre 2016].
@@ -1782,21 +1822,30 @@
                 <script type="text/ng-template" id="estudio_mercado.html">
                 <section id="estudio_mercado" class="two">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Estudio de mercado</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Estudio de mercado</h2>
-							</header>
+                                <div class="col hide-on-small-only m3 l2 table-of-contents">
+                                    <ul class="section">
+                                        <li><a ui-sref="mercado({'#':'estudio_mercado'})" ng-click="ludif.fn.activeSubMenu('est_mercado')" ng-class="ludif.sub.est_mercado" >Estudio de mercado</a></li>
+                                        <li><a ui-sref="mercado({'#':'comp_directos'})" ng-click="ludif.fn.activeSubMenu('comp_directos')" ng-class="ludif.sub.comp_directos">Competidores directos</a></li>
+                                        <li><a ui-sref="mercado({'#':'analisis_demanda'})" ng-click="ludif.fn.activeSubMenu('analisis')" ng-class="ludif.sub.analisis">Análisis de la demanda</a></li>
+                                        <li><a ui-sref="mercado({'#':'mercado_objetivo'})" ng-click="ludif.fn.activeSubMenu('mercado')" ng-class="ludif.sub.mercado">Mercado objetivo</a></li>
+                                        <li><a ui-sref="mercado({'#':'referencias'})" ng-click="ludif.fn.activeSubMenu('referencias')" ng-class="ludif.sub.referencias">Referencias</a></li>
+                                    </ul>
+                                </div>
 								<article class="col s12 m12 l12 flow-text">
                                     <h3>VÍA OFERTA-DEMANDA</h3>
                                     <h4>Análisis de la oferta (¿ Que se está ofreciendo?)</h4>
                                     <p class="interlineado">LUDIFICAR S.A.S  ofrece un servicio de recreación básico que comprende diferentes actividades lúdicas y culturales con las que se busca alivianar tensiones entre las personas que están en proceso de reinserción civil en la etapa del posconflicto.</p>
                                     <p>Estas actividades incluyen diferentes prácticas deportivas, juegos de mesa, talleres culturales (escritura enfocada al desarrollo de un proyecto de vida, pintura, danza), donde se logren fomentar  hábitos de aprovechamiento y utilización del tiempo libre y el cumplimiento del derecho a la recreación.</p>
-                                    <h4>Competidores directos(¿Quiénes están ya en el mercado?)</h4>
+                                    <h4 id="comp_directos">Competidores directos(¿Quiénes están ya en el mercado?)</h4>
                                     <p>Los principales competidores serán otras entidades gubernamentales o no, que ejecuten diversos proyecto con el objetivo de satisfacer la misma necesidad humana, en el mismo grupo de individuos.</p>
-                                    <h4>Análisis de la demanda (¿A quiénes les interesa comprar lo que se ofrece?)</h4>
+                                    <h4 id="analisis_demanda">Análisis de la demanda (¿A quiénes les interesa comprar lo que se ofrece?)</h4>
                                     <p class="interlineado">Los servicios ofrecidos por LUDIFICAR S.A.S responden a una necesidad que nace dentro de las comunidades en las que se pretende realizar el proceso de reinserción a la vida civil para los desmovilizados de las FARC, en la etapa del posconflicto.</p>
                                     <p>Dado que este grupo de personas compartirá un mismo espacio por un período de 6 meses, se hace necesario cubrir las necesidades básicas y garantizar el cumplimiento de los derechos humanos entre ellos, el derecho a la recreación.</p>
-                                    <h4>Mercado objetivo  (¿Quiénes queremos que nos compren?)</h4>
+                                    <h4 id="mercado_objetivo">Mercado objetivo  (¿Quiénes queremos que nos compren?)</h4>
                                     <p class="interlineado">El proyecto pretende llevarse a cabo dentro del marco de la zona veredal de Dabeiba, Antioquia; puesto que en este lugar se adaptará una zona de despeje para incluir a las personas desmovilizadas, que resulten del proceso de paz que se está adelantando en el país.</p>
                                     <p>Serán estos individuos los principales beneficiarios de los productos derivados del proyecto. </p>
                                 </article>
@@ -1804,7 +1853,7 @@
                             <div class="row">
 								<article class="col s12 m12 l12">
 
-								<h3>Referencias</h3>
+								<h3 id="referencias">Referencias</h3>
                                     <p style="text-align:justify;" class="flow-text">[1]"SISTEMA DEPARTAMENTAL Y MUNICIPAL DE LA RECREACION", Redcreacion.org, 2016. [Online]. Available: http://www.redcreacion.org/documentos/congreso5/JSuarez.htm. [Accessed: 11- Sep- 2016]. <br/>[2]"Las actividades recreativas: sus características, clasificación y beneficios", Efdeportes.com, 2016. [Online]. Available: http://www.efdeportes.com/efd196/las-actividades-recreativas-clasificacion.htm. [Accessed: 11- Sep- 2016].</p>
                                 </article>
 							</div>
@@ -1816,10 +1865,10 @@
                 <script type="text/ng-template" id="fuentes_financiacion.html">
                 <section id="financiacion" class="two">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Fuentes de financiación</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Fuentes de financiación</h2>
-							</header>
 								<article class="col s12 m12 l12 flow-text">
                                     <h3>Fondo de Inversión para la Paz (FIP)</h3>
                                     <p>Fondo creado con el objetivo de impulsar proyectos que contribuyan al desarrollo de ambientes que promuevan la paz dentro del Estado Colombiano. Ofrece varias líneas de crédito con objetivos de inmediatez. Tiene programas relacionados con apoyo social, vías, infraestructura social y gestión  comunitaria, desarrollo alternativo y obras para la paz.</p>
@@ -1845,12 +1894,27 @@
                 <script type="text/ng-template" id="evaluacion_financiera.html">
                 <section id="evaluacion_financiera" class="two">
 						<div class="container">
+                            <header class="col s12 m12 l12">
+                                <h2>Evaluación financiera</h2>
+                            </header>
 							<div class="row">
-                                <header class="col s12 m12 l12">
-								<h2>Evaluación financiera</h2>
-							</header>
+                                <div class="col hide-on-small-only m3 l2 table-of-contents">
+                                    <ul class="section">
+                                        <li><a ui-sref="financiera({'#':'evaluacion_financiera'})" ng-click="ludif.fn.activeSubMenu('eval_financiera')" ng-class="ludif.sub.eval_financiera" >Evaluación financiera</a></li>
+                                        <li><a ui-sref="financiera({'#':'inversion_inicial'})" ng-click="ludif.fn.activeSubMenu('inversion')" ng-class="ludif.sub.inversion">Inversión inicial</a></li>
+                                        <li><a ui-sref="financiera({'#':'aspectos_laborales'})" ng-click="ludif.fn.activeSubMenu('aspectos')" ng-class="ludif.sub.aspectos">Aspectos laborales</a></li>
+                                        <li><a ui-sref="financiera({'#':'costos_operativos'})" ng-click="ludif.fn.activeSubMenu('costos')" ng-class="ludif.sub.costos">Estructura de costos operativos</a></li>
+                                        <li><a ui-sref="financiera({'#':'ff_puro'})" ng-click="ludif.fn.activeSubMenu('ffPuro')" ng-class="ludif.sub.ffPuro">Flujo de fondos puro</a></li>
+                                        <li><a ui-sref="financiera({'#':'vpn_ffp'})" ng-click="ludif.fn.activeSubMenu('vpnFfp')" ng-class="ludif.sub.vpnFfp">Indicadores del ffp</a></li>
+                                        <li><a ui-sref="financiera({'#':'ff_financiado'})" ng-click="ludif.fn.activeSubMenu('financiado')" ng-class="ludif.sub.financiado">Flujo de fondos financiado</a></li>
+                                        <li><a ui-sref="financiera({'#':'financiacion'})" ng-click="ludif.fn.activeSubMenu('financiacion')" ng-class="ludif.sub.financiacion">Financiación</a></li>
+                                        <li><a ui-sref="financiera({'#':'amortizacion'})" ng-click="ludif.fn.activeSubMenu('amortizacion')" ng-class="ludif.sub.amortizacion">Tabla de amortización</a></li>
+                                        <li><a ui-sref="financiera({'#':'vpn_fff'})" ng-click="ludif.fn.activeSubMenu('vpnFff')" ng-class="ludif.sub.vpnFff">Indicadores del fff</a></li>
+                                        <li><a ui-sref="financiera({'#':'referencias'})" ng-click="ludif.fn.activeSubMenu('referencias')" ng-class="ludif.sub.referencias">Referencias</a></li>
+                                    </ul>
+                                </div>
 								<article class="col s12 m12 l12">
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="inversion_inicial" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="INVERSIÓN INICIAL-cell title-col-table center brown white-text" colspan="2">INVERSIÓN INICIAL</th>
@@ -1967,7 +2031,7 @@
     </tr>
   </tbody>
 </table>
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="aspectos_laborales" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="DESCRIPCIÓN-cell title-col-table center brown white-text" colspan="4">ASPECTOS LABORALES</th>
@@ -2082,7 +2146,7 @@
     </tr>
   </tbody>
 </table>
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="costos_operativos" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="ESTRUCTURA DE COSTOS OPERATIVOS-cell title-col-table center brown white-text" colspan="2">ESTRUCTURA DE COSTOS OPERATIVOS</th>
@@ -2120,7 +2184,7 @@
   </tbody>
 </table>
 
-                                    <table  class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="ff_puro" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="Flujo de fondos con proyecto y sin financiación-cell title-col-table center brown white-text" colspan="7">FLUJO DE FONDOS PURO</th>
@@ -2308,10 +2372,10 @@
   </tbody>
 </table>
                                     <p class="interlineado flow-text">Asumimos que los costos aumentan en un 5% anualmente. Debido a lo anterior, los ingresos también aumentan puesto que es necesario cobrar más para cubrir el aumento en los costos. Se proyecta un cobro de 25 millones adicionales por año.</p>
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="vpn_ffp" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
-      <th class="VNP-cell title-col-table center brown white-text" colspan="2">INFORMACIÓN ADCICIONAL CORRESPONDIENTE AL FFP</th>
+      <th class="VNP-cell title-col-table center brown white-text" colspan="2">INDICADORES DEL FFP</th>
     </tr>
   </thead>
   <tbody>
@@ -2370,7 +2434,7 @@
   </tbody>
 </table>
 
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="ff_financiado" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="Flujo de fondos con proyecto y con financiación-cell title-col-table center brown white-text" colspan="7">FLUJO DE FONDOS FINANCIADO</th>
@@ -2603,7 +2667,7 @@
     </tr>
   </tbody>
 </table>
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="financiacion" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="FINANCIACIÓN-cell title-col-table center brown white-text" colspan="2">FINANCIACIÓN</th>
@@ -2632,7 +2696,7 @@
   </tbody>
 </table>
 
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="amortizacion" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
     <tr>
       <th class="TABLA DE AMORTIZACIÓN-cell title-col-table center brown white-text" colspan="6">TABLA DE AMORTIZACIÓN</th>
@@ -2690,10 +2754,10 @@
   </tbody>
 </table>
 
-                                    <table class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
+                                    <table id="vpn_fff" class="striped bordered z-depth-1" style="background-color: #ffffff;font-size:smaller;">
   <thead>
        <tr>
-      <th class="VNP-cell title-col-table center brown white-text" colspan="2">INFORMACIÓN ADCICIONAL CORRESPONDIENTE AL FFF</th>
+      <th class="VNP-cell title-col-table center brown white-text" colspan="2">INDICADORES DEL FFF</th>
     </tr>
   </thead>
   <tbody>
@@ -2757,7 +2821,7 @@
                             <div class="row">
 								<article class="col s12 m12 l12">
                                 <br/>
-								<h3>Referencias</h3>
+								<h3 id="referencias">Referencias</h3>
                                     <p style="text-align:justify;" class="flow-text">
                                         [1] investing.com Español. (2016). Rendimiento de Bono EE.UU. a 10 años - Investing.com. [online] Available at: http://es.investing.com/rates-bonds/u.s.-10-year-bond-yield [Accessed 22 Oct. 2016].<br/>
                                         [2] Ambito.com. (2016). COLOMBIA - Riesgo País | Mercados - Ambito.com. [online] Available at: http://www.ambito.com/economia/mercados/riesgo-pais/info/?id=4 [Accessed 22 Oct. 2016].
@@ -2772,9 +2836,8 @@
                 <script type="text/ng-template" id="about.html">
 					<section id="about" class="three">
 						<div class="container">
-
 							<header>
-								<h2>Integrantes</h2>
+								<h2 style="text-align: center">Integrantes</h2>
 							</header>
                             <br>
                             <div class="row">
@@ -2858,7 +2921,7 @@
 						<div class="container">
 
 							<header>
-								<h2>Contáctenos</h2>
+								<h2 style="text-align: center">Contáctenos</h2>
 							</header>
 
 							<p></p>
@@ -2897,6 +2960,7 @@
         <script src="assets/js/angular-ui-router.min.js"></script>
         <script src="assets/js/app/app.module.js"></script>
         <script src="assets/js/app/app.config.js"></script>
+        <script src="assets/js/app/app.run.js"></script>
         <script src="assets/js/app/app.controller.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
          <!--<script src="assets/js/jquery.scrolly.min.js"></script>-->
@@ -2904,8 +2968,8 @@
            <script src="assets/js/skel.min.js"></script>
            <script src="assets/js/util.js"></script>
            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-           <script src="assets/js/main.js"></script>
             <script src="js/materialize.min.js"></script>
+             <script src="assets/js/main.js"></script>
 <script>
 $(document).ready(function(){
     $('.materialboxed').materialbox();

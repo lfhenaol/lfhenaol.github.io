@@ -1646,7 +1646,7 @@
 	a {
 		text-decoration: none;
 		color: inherit;
-		border-bottom: dotted 1px rgba(128, 128, 128, 0.5);
+		/*border-bottom: dotted 1px rgba(128, 128, 128, 0.5);*/
 		-moz-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-webkit-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-ms-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
@@ -2207,7 +2207,7 @@
 				background-position: center center;
 			}
 
-			#main section.one {
+			#main div.one {
 				background-color: #81918E;
 				background-image: url(../../images/Ludificar.png);
 				height: 700px;
@@ -2354,7 +2354,7 @@
 		display: none;
 	}
 
-	@media screen and (max-width: 1880px) {
+	@media screen and (max-width: 2800px) {
 
 		/* Basic */
 
@@ -2831,4 +2831,33 @@ h4 {
 
 .slider .indicators .indicator-item.active {
     background-color: #4CAF50 !important;
+}
+
+.borde-superior{
+	background-image: url(../../images/borde-superior.png);
+	width: 100%;
+	height: 70px;
+}
+
+.table-of-contents{
+	position: fixed;
+	right: 31px !important;
+	top: 11%;
+}
+
+.table-of-contents a.active {
+	color: black;
+	border-right: 5px solid #ea4a4f;
+	border-left: none !important;
+	padding-right: 5%;
+}
+
+.table-of-contents a:hover {
+	border-right: 5px solid #ea4a4f;
+	border-left: none !important;
+	padding-right: 5%;
+}
+
+section{
+	margin-top: 40px;
 }
