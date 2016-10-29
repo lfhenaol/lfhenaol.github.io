@@ -42,7 +42,7 @@
 			});
 
 		// Scrolly links.
-			$('.scrolly').scrolly();
+			//$('.scrolly').scrolly();
 
 
 
