@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html ng-app="ludificar">
 	<head>
 		<title>Ludificar S.A.S</title>
 		<meta charset="utf-8" />
@@ -24,7 +24,7 @@
 	<body>
 
 		<!-- Header -->
-			<div id="header">
+			<div id="header" ng-controller="LudificarCtrl as ludif">
 
 				<div class="top">
 
@@ -35,44 +35,31 @@
 
 					<!-- Nav -->
 						<nav id="nav">
-							<!--
-
-								Prologue's nav expects links in one of two formats:
-
-								1. Hash link (scrolls to a different section within the page)
-
-								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
-
-								2. Standard link (sends the user to another page/site)
-
-								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
-
-							-->
 							<ul class="collapsible" data-collapsible="accordion">
-								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-home"><!--justificaión-->Presentación</span></a></li>
-								<li><a href="#objetivos" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-bullhorn">Objetivos</span></a></li>
-                                <li><a href="#justificacion" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-tag">Justificación</span></a></li>
-                                <li><a href="#antecedentes" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-feed">Antecedentes</span></a></li>
+								<li><a ui-sref="intro" ng-click="ludif.fn.active('intro')" ng-class="ludif.active.intro"  class="skel-layers-ignoreHref waves-effect"><span class="icon fa-home"><!--justificaión-->Presentación</span></a></li>
+								<li><a ui-sref="objetivos" ng-click="ludif.fn.active('objetivos')" ng-class="ludif.active.objetivos" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-bullhorn">Objetivos</span></a></li>
+                                <li><a ui-sref="justificacion" ng-click="ludif.fn.active('justificacion')" ng-class="ludif.active.justificacion" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-tag">Justificación</span></a></li>
+                                <li><a ui-sref="antecedentes" ng-click="ludif.fn.active('antecedentes')" ng-class="ludif.active.antecedentes"class="skel-layers-ignoreHref waves-effect"><span class="icon fa-feed">Antecedentes</span></a></li>
 								 <li>
                                 <div class="collapsible-header waves-effect " style="padding: 0.5em 1.5em 0.5em 1.5em;"><span class="icon fa-suitcase">Estudios</span></div>
                                   <div class="collapsible-body">
                                       <ul>
-                                          <li><a href="#estudio_legal" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-legal">Estudio legal</span></a></li>
-                                          <li><a href="#estudio_ambiental" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-leaf">Estudio ambiental</span></a></li>
-                                          <li><a href="#estudio_organizacional" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-group">Estudio organizacional</span></a></li>
+                                          <li><a ui-sref="legal" ng-click="ludif.fn.active('legal')" ng-class="ludif.active.legal"  class="skel-layers-ignoreHref waves-effect"><span class="icon fa-legal">Estudio legal</span></a></li>
+                                          <li><a ui-sref="ambiental" ng-click="ludif.fn.active('ambiental')" ng-class="ludif.active.ambiental" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-leaf">Estudio ambiental</span></a></li>
+                                          <li><a ui-sref="organizacional" ng-click="ludif.fn.active('organizacional')" ng-class="ludif.active.organizacional" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-group">Estudio organizacional</span></a></li>
                                           </li>
-                                      <li><a href="#estudio_entorno" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-globe">Estudio de entorno</span></a></li>
-                                          <li><a href="#estudio_tecnico" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-gears">Estudio técnico</span></a></li>
+                                      <li><a ui-sref="entorno" ng-click="ludif.fn.active('entorno')" ng-class="ludif.active.entorno" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-globe">Estudio de entorno</span></a></li>
+                                          <li><a ui-sref="tecnico" ng-click="ludif.fn.active('tecnico')" ng-class="ludif.active.tecnico" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-gears">Estudio técnico</span></a></li>
                                       </li>
-                                          <li><a href="#estudio_mercado" id="top-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-industry">Estudio de mercado</span></a></li>
+                                          <li><a ui-sref="mercado" ng-click="ludif.fn.active('mercado')" ng-class="ludif.active.mercado" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-industry">Estudio de mercado</span></a></li>
                                       </ul>
                                      </div>
                                 </li>
-								<li><a href="#financiacion" id="portfolio-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-line-chart">Fuentes de financiación</span></a></li>
-                <li><a href="#evaluacion_financiera" id="portfolio-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-money">Evaluación financiera</span></a></li>
+								<li><a ui-sref="financiacion" ng-click="ludif.fn.active('financiacion')" ng-class="ludif.active.financiacion" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-line-chart">Fuentes de financiación</span></a></li>
+                <li><a ui-sref="financiera" ng-click="ludif.fn.active('financiera')" ng-class="ludif.active.financiera"  class="skel-layers-ignoreHref waves-effect"><span class="icon fa-money">Evaluación financiera</span></a></li>
 <!--                     <li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-th">Conclusiones</span></a></li>-->
-								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-user">Integrantes</span></a></li>
-								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-envelope">Contáctenos</span></a></li>
+								<li><a ui-sref="integrantes" ng-click="ludif.fn.active('integrantes')" ng-class="ludif.active.integrantes" id="about-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-user">Integrantes</span></a></li>
+								<li><a ui-sref="contact" ng-click="ludif.fn.active('contact')" ng-class="ludif.active.contact" id="contact-link" class="skel-layers-ignoreHref waves-effect"><span class="icon fa-envelope">Contáctenos</span></a></li>
 							</ul>
 						</nav>
 
@@ -94,7 +81,11 @@
 		<!-- Main -->
 			<div id="main">
 
-				<!-- Intro -->
+                <ui-view></ui-view>
+
+
+                <!-- Intro -->
+                <script type="text/ng-template" id="intro.html">
 					<section id="top" class="one dark cover z-depth-3">
 						<div class="container">
 
@@ -107,8 +98,10 @@
 
 						</div>
 					</section>
-                
+                </script>
+
                 <!-- Objetivos -->
+                <script type="text/ng-template" id="objetivos.html">
                 <section id="objetivos" class="two">
 						<div class="container">
 							<div class="row">
@@ -135,8 +128,10 @@
 							</div>
 						</div>
 					</section>
+                </script>
 
                 <!-- Justificación -->
+                <script type="text/ng-template" id="justificacion.html">
                 <section id="justificacion" class="two ">
 						<div class="container">
 							<div class="row">
@@ -156,8 +151,10 @@
 							</div>
 						</div>
 					</section>
-                
+                </script>
+
                 <!-- Antecedentes -->
+                <script type="text/ng-template" id="antecedentes.html">
                 <section id="antecedentes" class="two">
 						<div class="container">
 
@@ -221,8 +218,10 @@
 							</div>
 						</div>
 					</section>
-                
+                </script>
+
                 <!-- Estudio Legal -->
+                <script type="text/ng-template" id="estudio_legal.html">
                 <section id="estudio_legal" class="two">
 						<div class="container">
 
@@ -315,8 +314,11 @@
 							</div>
 						</div>
 					</section>
-                
+                </script>
+
+
                 <!-- Estudio ambiental -->
+                <script type="text/ng-template" id="estudio_ambiental.html">
                 <section id="estudio_ambiental" class="two">
 						<div class="container">
 							<div class="row">
@@ -379,9 +381,10 @@
 							</div>
 						</div>
 					</section>
-                
-            
+                </script>
+
                 <!-- Estudio organizacional -->
+                <script type="text/ng-template" id="estudio_organizacional.html">
                 <section id="estudio_organizacional" class="two">
 						<div class="container">
 							<div class="row">
@@ -473,8 +476,10 @@
 							</div>
 						</div>
 					</section>
-                
-                 <!-- Estudio Legal -->
+                </script>
+
+                <!-- Estudio entorno -->
+                <script type="text/ng-template" id="estudio_entorno.html">
                 <section id="estudio_entorno" class="two">
 						<div class="container">
 
@@ -522,8 +527,10 @@
 							</div>
 						</div>
 					</section>
-                
+                </script>
+
                 <!-- Estudio técnico -->
+                <script type="text/ng-template" id="estudio_tecnico.html">
                 <section id="estudio_tecnico" class="two">
 						<div class="container">
 
@@ -1769,8 +1776,10 @@
 							</div>
 						</div>
 					</section>
+                </script>
                 
                 <!-- Estudio de mercado -->
+                <script type="text/ng-template" id="estudio_mercado.html">
                 <section id="estudio_mercado" class="two">
 						<div class="container">
 							<div class="row">
@@ -1801,8 +1810,10 @@
 							</div>
 						</div>
 					</section>
+                </script>
                 
                 <!-- Fuentes de financiacion -->
+                <script type="text/ng-template" id="fuentes_financiacion.html">
                 <section id="financiacion" class="two">
 						<div class="container">
 							<div class="row">
@@ -1828,8 +1839,10 @@
 							</div>
 						</div>
 					</section>
+                </script>
                 
                 <!-- Evaluación financiera -->
+                <script type="text/ng-template" id="evaluacion_financiera.html">
                 <section id="evaluacion_financiera" class="two">
 						<div class="container">
 							<div class="row">
@@ -2753,8 +2766,10 @@
 							</div>
 						</div>
 					</section>
+                </script>
                 
 				<!-- About Me -->
+                <script type="text/ng-template" id="about.html">
 					<section id="about" class="three">
 						<div class="container">
 
@@ -2835,7 +2850,9 @@
                             <div class="cols s12 m12 l3"></div>
 						</div>
 					</section>
+                </script>
 
+                <script type="text/ng-template" id="contact.html">
 				<!-- Contact -->
 					<section id="contact" class="four">
 						<div class="container">
@@ -2861,6 +2878,7 @@
 
 						</div>
 					</section>
+                </script>
 
 			</div>
 
@@ -2875,6 +2893,11 @@
 			</div>
 
 		<!-- Scripts -->
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/angular-ui-router.min.js"></script>
+        <script src="assets/js/app/app.module.js"></script>
+        <script src="assets/js/app/app.config.js"></script>
+        <script src="assets/js/app/app.controller.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
          <script src="assets/js/jquery.scrolly.min.js"></script>
            <script src="assets/js/jquery.scrollzer.min.js"></script>

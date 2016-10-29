@@ -2207,10 +2207,14 @@
 				background-position: center center;
 			}
 
-			#main > section.one {
+			#main section.one {
 				background-color: #81918E;
-				background-image: url("../../images/Ludificar.png");
-                height: 700px;
+				background-image: url(../../images/Ludificar.png);
+				height: 700px;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				padding: 20em 0;
 			}
 
 			#main > section.two {
@@ -2532,7 +2536,6 @@
 				#main section.cover {
 					padding: 4em 0;
 				}
-
 	}
 
 /* Mobile */
