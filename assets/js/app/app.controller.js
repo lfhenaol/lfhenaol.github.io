@@ -18,6 +18,7 @@
         ludif.test = "Test";
         ludif.active = {};
         ludif.sub = {};
+
         /////////////////////////////
 
         function active(str) {
